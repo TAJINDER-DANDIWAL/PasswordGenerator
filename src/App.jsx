@@ -9,10 +9,15 @@ function App() {
   const [charallow, setCharallow] = useState(false)
 
   let PasswordGenerator = useCallback(() => {
-    let char = ""
+    let password = ""
     let string = "ABCDEFGHIJKLMNOPQRSTabcdefghijklmnopqrstuvwxyz"
-    let symbols = "!@#$%^&*()_+"
-    
+
+    if (numberallow) {
+      string += "1234567890"
+    }
+    if (charallow) {
+      string += "!@#$%^&*()_+"
+    }
 
   }, [length, numberallow, charallow])
 
