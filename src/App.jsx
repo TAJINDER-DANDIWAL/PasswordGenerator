@@ -19,9 +19,12 @@ function App() {
     if (charallow) {
       string += "!@#$%^&*()_+"
     }
-
   }, [length, numberallow, charallow])
 
+  for (let i = 0; i <= array.length; i++) {
+    let char = Math.floor(Math.random * string.length +1)
+    
+  }
   return (
     <>
     <h1 className='text-4xl  text text-white align-text-top '>Password Generator</h1>
