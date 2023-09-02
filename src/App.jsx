@@ -23,6 +23,7 @@ function App() {
 
   for (let i = 0; i <= array.length; i++) {
     let char = Math.floor(Math.random * string.length +1)
+    let 
     
   }
   return (
