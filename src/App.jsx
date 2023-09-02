@@ -8,9 +8,10 @@ function App() {
   const [length, setLength] = useState(10)
   const [numberallow, setNumberallow] = useState(false)
   const [charallow, setCharallow] = useState(false)
+  const [password, setPassword] = useState("")
 
   let PasswordGenerator = useCallback(() => {
-    let password = ""
+    let pass = ""
     let string = "ABCDEFGHIJKLMNOPQRSTabcdefghijklmnopqrstuvwxyz"
 
     if (numberallow) {
@@ -19,13 +20,15 @@ function App() {
     if (charallow) {
       string += "!@#$%^&*()_+"
     }
+
+    for (let i = 0; i <= array.length; i++) {
+      let char = Math.floor(Math.random * string.length +1)
+      let pass = string.charAt(char)
+      setPassword(pass)
+      
+    }
   }, [length, numberallow, charallow])
 
-  for (let i = 0; i <= array.length; i++) {
-    let char = Math.floor(Math.random * string.length +1)
-    let 
-    
-  }
   return (
     <>
     <h1 className='text-4xl  text text-white align-text-top '>Password Generator</h1>
