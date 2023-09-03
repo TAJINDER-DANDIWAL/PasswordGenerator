@@ -21,7 +21,7 @@ function App() {
       string += "!@#$%^&*()_+"
     }
 
-    for (let i = 0; i <= array.length; i++) {
+    for (let i = 0; i <= length; i++) {
       let char = Math.floor(Math.random * string.length +1)
       let pass = string.charAt(char)
     }
@@ -29,15 +29,10 @@ function App() {
     setPassword(pass)
   }, [length, numberallow, charallow, setPassword])
 
-  const copyPasswordToClipboard = useCallback(() => {
-    PasswordRef.current?.select();
-    PasswordRef.current?.setSelectionRange(0, 999);
-    window.navigator.clipboard.writeText(password)
-  }, [password])
 
-  useEffect(() => {
-    PasswordGenerator()
-  }, [length, numberallow, charallow, PasswordGenerator])
+  // useEffect(() => {
+  //   PasswordGenerator()
+  // }, [length, numberallow, charallow, PasswordGenerator])
 
   return (
     <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500">
@@ -49,12 +44,11 @@ function App() {
             className="outline-none w-full py-1 px-3"
             placeholder="Password"
             readOnly
-            ref={PasswordRef}
         />
-        <button
+        {/* <button
         onClick={copyPasswordToClipboard}
         className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'
-        >copy</button>
+        >copy</button> */}
         
     </div>
     <div className='flex text-sm gap-x-2'>
@@ -72,10 +66,10 @@ function App() {
       <div className="flex items-center gap-x-1">
       <input
           type="checkbox"
-          defaultChecked={numberAllowed}
+          defaultChecked={numberallow}
           id="numberInput"
           onChange={() => {
-              setNumberAllowed((prev) => !prev);
+              setNumberallow((prev) => !prev);
           }}
       />
       <label htmlFor="numberInput">Numbers</label>
@@ -83,10 +77,10 @@ function App() {
       <div className="flex items-center gap-x-1">
           <input
               type="checkbox"
-              defaultChecked={charAllowed}
+              defaultChecked={charallow}
               id="characterInput"
               onChange={() => {
-                  setCharAllowed((prev) => !prev )
+                  setCharallow((prev) => !prev )
               }}
           />
           <label htmlFor="characterInput">Characters</label>
