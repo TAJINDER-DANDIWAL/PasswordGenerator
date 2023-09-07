@@ -85,5 +85,5 @@ function App() {
     
   )
 }
-// tajinder
+
 export default App
